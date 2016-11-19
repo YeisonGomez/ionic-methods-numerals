@@ -1,0 +1,12 @@
+<div scroll="false" style="position:absolute; left: 0px;right: 0px;bottom: 191px;height: 50px;z-index: 0px;">
+    <ion-slide-box show-pager="false">
+        <ion-slide ng-repeat="key in keyboard">
+            <div class="button-bar" ng-repeat="row in key">
+                <a ng-repeat="value in row" class="button button" ng-click="addFormula(value)" ng-class="{'button button-dark': colorKeyboard(value), 'button-dark': value=='forward'}">
+                    <span ng-if="value.ico==undefined" style="font-size:18px;">{{value}}</span>
+                    <span ng-class="{'ion-{{value.ico}}': value.ico != undefined}" style="font-size: 1.5em;"></span>
+                </a>
+            </div>
+        </ion-slide>
+    </ion-slide-box>
+</div>

@@ -1,0 +1,144 @@
+ion-view{
+	background-color: whitesmoke!important;
+}
+.bar{
+	background-size: 0!important;
+}
+.input-round{
+	box-shadow: 0 1px 5px #999;
+    border-radius: 10px;
+}
+
+.input-size{
+	width: 85%;
+	height: 42px!important;
+    padding-left: 10px!important;
+}
+
+.icon-table{
+	font-size: 32px;
+    margin-left: 15px;
+	margin-top: 6px;
+}
+.top-55px{
+    top: 55px!important;
+}
+.padding-top-10px{
+	padding-top: 10px;
+}
+.padding-5px{
+	padding: 5px;
+}
+.margin-left-15pc{
+	margin-left: 15%!important;
+}
+.margin-bot-10px{
+	margin-bottom: 10px!important;
+}
+.modal{
+	width: 80%;
+	min-height: 60%;
+	left: 10%;
+	top:10%;
+}
+.modal-backdrop{
+	background-color: rgba(0,0,0,0.8);
+	transition: all 0.1s ease;
+}
+.normal {
+  margin-left: 20px;
+  width: 250px;
+  border: 1px solid #1565C0;
+  border-collapse: collapse;
+  /*background-color: #2196F3;*/
+}
+
+.normal th, .normal td {
+  transition: all 2s ease;
+  border: 1px solid #1565C0;
+  min-width: 54px;
+}
+.normal th input{
+	max-width: 120px;
+	max-height: 25px;
+	padding-left: 10PX;
+  	text-align: center;
+  	background-color: transparent;
+}
+.table-icon{
+  transition: all 10s ease;
+  margin-top: 10px;
+  margin-left: 20px;
+  width: 250px;
+  font-size: 24px;
+  border-collapse: collapse;
+}
+
+.bkg-transparent{
+	background-color: transparent;
+}
+
+.width-90pc{
+	width: 90%!important;
+}
+.width-40pc{
+	width: 40%!important;
+}
+.border-none{
+	border: none;
+}
+.padding-left-10px{
+	padding-left: 10px!important;
+}
+.margin-left-5pc{
+	margin-left: 5%;
+}
+.text-left{
+	text-align: left;
+}
+.cursive{
+	font-style: italic;
+}
+.bold{
+	font-weight: bolder;
+}
+
+
+.bck-blue1{
+	background-color: #0D47A1!important; 
+}
+.bck-slide div{
+	background-color: #1565C0!important;
+	color: whitesmoke!important;
+	border-color: #0D47A1!important;
+
+}
+.bck-blue2 {
+	background-color: #1565C0!important;
+}
+.bck-blue3{
+	background-color: #2196F3!important;
+}
+.color-blue1{
+	color: #0D47A1!important;
+}
+
+.color-white{
+	color: whitesmoke!important;
+}
+.heigth-60px{
+    height: 60px;
+}
+
+
+.active-button:active{
+	transition: all 2s ease;
+	color: whitesmoke;
+	background-color: #1565C0;
+}
+
+.active-result:active{
+	transition: all 2s ease;
+	color: #1565C0!important;
+	background-color: whitesmoke!important;
+}
