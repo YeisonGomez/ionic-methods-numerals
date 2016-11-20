@@ -1,16 +1,17 @@
 <ion-view>
     <ion-pane>
-        <ion-header-bar class="heigth-60px bar-stable padding-top-10px bck-blue1">
+        <ion-header-bar ng-class="{ 'display-none' : !showInput}" class="heigth-60px bar-stable padding-top-10px bck-blue1">
             <input type="text" placeholder="Digite la fórmula" class="input-size input-round" ng-model="formula" ng-disabled="false">
             <i class="icon ion-log-out icon-table color-white"></i>
         </ion-header-bar>
-        <ion-content class="top-55px">
+
+        <ion-content ng-class="{ 'top-55px' : showInput, 'top-0' : !showInput}" class="">
             <ion-slide-box class="bck-blue2" slide-tabs-scrollable="false" show-pager="false">
-                <ion-slide ng-repeat="met in methods" ng-if="$index%3 == 0">
+                <ion-slide  ng-repeat="met in methods" ng-if="$index%3 == 0">
                     <div class="bck-slide color-white button-bar">
-                        <div class="button" style="font-size: 13px;" ng-click="selectMethod(met.sub)">{{met.name}}</div>
-                        <div class="button" style="font-size: 13px;" ng-click="selectMethod(methods[$index + 1].sub)">{{methods[$index + 1].name}}</div>
-                        <div class="button" style="font-size: 13px;" ng-click="selectMethod(methods[$index + 2].sub)">{{methods[$index + 2].name}}</div>
+                        <div class="button" style="font-size: 13px;" ng-click="selectMethod(met.name, met.sub)">{{met.name}}</div>
+                        <div class="button" style="font-size: 13px;" ng-click="selectMethod(methods[$index + 1].name, methods[$index + 1].sub)">{{methods[$index + 1].name}}</div>
+                        <div class="button" style="font-size: 13px;" ng-click="selectMethod(methods[$index + 2].name, methods[$index + 2].sub)">{{methods[$index + 2].name}}</div>
                     </div>
                 </ion-slide>
             </ion-slide-box>
@@ -35,7 +36,7 @@
         </ion-header-bar>
         <ion-content>
             <div class="list list-inset">
-                <a ng-repeat="met in method_selected" ng-click="openInput(met)">
+                <a ng-repeat="met in method_selected.sub" ng-click="openInput(met, method_selected.module)">
                     <div class="item active-result">
                         <i class="icon ion-arrow-right-b"></i> &nbsp; {{met.name}}
                     </div>

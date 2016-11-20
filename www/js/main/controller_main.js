@@ -2,20 +2,24 @@ app.controller('mainCtrl', function($scope, $ionicModal, mathFactory) {
 
     $scope.method_solution = "";
     $scope.resolveHTML = "/templates/welcome.html";
-    $scope.resolveGraphics = "/templates/welcome_graphics.html"
+    $scope.resolveGraphics = "/templates/welcome_graphics.html";
+    
+    $scope.showInput = false;
 
-    $scope.selectMethod = function(sub) {
-        $scope.method_selected = sub;
+    $scope.selectMethod = function(module, sub) {
+        $scope.method_selected = { module: module, sub: sub };
         $scope.modalMethods.show();
     }
 
-    $scope.openInput = function(sub) {
-        $scope.method_solution = sub.name;
+    $scope.openInput = function(sub, module) {
+        $scope.method_solution = { module: module, sub: sub.name };
         $scope.modalMethods.hide();
+
         if (sub.in == "xy") {
             $scope.modalXY.show();
-        } else if (sub.in == "matriz") {
-
+            $scope.showInput = false;
+        } else if (sub.in == "formula") {
+            $scope.showInput = true;
         } else {
 
         }
@@ -23,13 +27,11 @@ app.controller('mainCtrl', function($scope, $ionicModal, mathFactory) {
 
     $scope.solution = function(input) {
         mathFactory.solution($scope.method_solution, input, function(data, html) {
-            //$scope.solveTable = dataXy;
-            //$scope.solveSum = dataSum;
             $scope.resolveHTML = html.resolve;
             $scope.resolveGraphics = html.graphics;
-
             $scope.solveProblem = data;
-            console.log($scope.solveProblem);
+
+            console.log(data);
             $scope.modalXY.hide();
         });
     }

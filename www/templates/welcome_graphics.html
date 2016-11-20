@@ -1,1 +1,32 @@
 <h1>Estos es un grapfica</h1>
+
+<table class="normal bck-blue2 color-white" summary="Tabla genérica">
+    <tr>
+        <th scope="col">X</th>
+        <th scope="col">Y</th>
+    </tr>
+</table>
+<table class="normal" summary="Tabla genérica" ng-repeat="num in numTable">
+    <tr>
+        <th scope="row">
+            <input type="number" ng-model="num.x">
+        </th>
+        <th scope="row">
+            <input type="number" ng-model="num.y">
+        </th>
+    </tr>
+</table>
+<table class="table-icon">
+    <tr class="color-blue1" ;>
+        <th scope="row" class="active-button" ng-click="addRow()">
+            <i class="icon ion-ios-plus-outline"></i>
+        </th>
+        <th scope="row" class="active-button" ng-click="deleteRow()">
+            <i class="icon ion-ios-minus-outline"></i>
+        </th>
+    </tr>
+</table>
+<br>
+<button class="width-90pc margin-left-5pc bck-blue1 color-white border-none padding-5px active-result" ng-click="solution(numTable)"> Resolver </button>
+<br>
+<br>
