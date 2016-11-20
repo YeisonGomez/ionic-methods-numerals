@@ -17,7 +17,8 @@ Para contribuir y agregar nuevos modulos a Nume, debes tener conceptos basicos d
 
 - En el editor de codigo ubiscarse en: /www/js/math/
 - Crear nuevo modulo: /www/js/math/mi_nuevo_modulo/
-- Dentro del nuevo modulo crear 3 archivos, ejemplo: 
+- Dentro del nuevo modulo crear 3 archivos, ejemplo:
+
 	1. mi_nuevo_modulo.js
 	2. view_mi_nuevo_modulo.html
 	3. view_graphics.html
@@ -122,7 +123,7 @@ La solución en pantalla para el usuario es editable por el contributor. Para pe
 
 **Nota:** {{solveProblem}} es la variable que contiene la respuesta del script proporcionado por el contributor **(no puede ser editable)**.
 
-**Agregar una gráfica con [angular-chart.js](https://jtblin.github.io/angular-chart.js/)**
+#Agregar gráfica con [angular-chart.js](https://jtblin.github.io/angular-chart.js/)#
 
 Para agregar una grafica se debe llevar a cabo en la respuesta del script, ejemplo:
 	
