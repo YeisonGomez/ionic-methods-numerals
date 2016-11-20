@@ -4,7 +4,7 @@ Nume es una aplicación movil desarrollada en ionic 1, la cual busca resolver pr
 
 ## Instalación #
 
-```bash
+```
 $ git clone https://github.com/YeisonGomez/ionic-methods-numerals.git
 $ cd ionic-methods-numerals
 $ ionic serve
@@ -22,14 +22,14 @@ Para contribuir y agregar nuevos modulos a Nume, debes tener conceptos basicos d
 		2. view_mi_nuevo_modulo.html
 		3. view_graphics.html
 	- En el /www/index.html déspues del <body>:
-	```bash
+	```
 		<script src="js/math/mi_nuevo_modulo/mi_nuevo_modulo.js"></script>
 	```
 
 **Paso 2**
 
 	En /www/js/controller.js agregar el nuevo modulo con sus sub-modulos
-	```bash
+	```
 		$scope.methods = [
 			{
 		        name: "AJ de curvas",
@@ -55,7 +55,7 @@ Para contribuir y agregar nuevos modulos a Nume, debes tener conceptos basicos d
 **Paso 3**
 
 	En /www/js/math/math_factory.js agregar 
-	```bash
+	```
 		app.factory('mathFactory', function(minumSquare, miNuevoModulo) {
 		    return {
 
@@ -80,7 +80,7 @@ Para contribuir y agregar nuevos modulos a Nume, debes tener conceptos basicos d
 **Paso 4**
 
 	En el script de el nuevo modulo
-	```bash
+	```
 	app.factory('miNuevoModulo', function() {
 
 		var add = function(input) {
@@ -112,19 +112,19 @@ Para contribuir y agregar nuevos modulos a Nume, debes tener conceptos basicos d
 	La solución en pantalla para el usuario es editable por el contributor. Para personalizar la vista y mostrar la solución del nuevo modulo se debe agregar en 
 	"/js/math/mi_nuevo_modulo/view_mi_nuevo_modulo.html"
 
-	```bash
+	```
 	<h1>La solución del problema es:</h1>
 	<h2>{{solveProblem}}</h2>
 	```
 
 	**Nota:** {{solveProblem}} es la variable que contiene la respuesta del script proporcionado por el contributor **(no puede ser editable)**.
 
-**Agregar una gráfica con angular-chart.js**
-	
+**Agregar una gráfica con [angular-chart.js](https://jtblin.github.io/angular-chart.js/)**
+
 	Para agregar una grafica se debe llevar a cabo en la respuesta del script, ejemplo:
 	
 	**/www/js/math/mi_nuevo_modulo/mi_nuevo_modulo.js**
-	```bash
+	```
 	var add = function(input) {
 		var solution = {
 			problem: input.a + input.b,
@@ -140,7 +140,7 @@ Para contribuir y agregar nuevos modulos a Nume, debes tener conceptos basicos d
 	```
 
 	**/www/js/math/mi_nuevo_modulo/view_graphics.html
-	```bash
+	```
 	<canvas id="base" class="chart-bubble" chart-data="solveProblem.miGrafica">
 	</canvas>
 	```
