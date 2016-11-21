@@ -18,9 +18,9 @@ Para contribuir y agregar nuevos modulos a Nume, debes tener conceptos basicos d
 - En el editor de codigo ubicarse en: /www/js/math/
 - Crear nuevo modulo: /www/js/math/mi_nuevo_modulo/
 - Dentro del nuevo modulo crear 3 archivos, ejemplo: 
-	1 mi_nuevo_modulo.js
-	2 view_mi_nuevo_modulo.html
-	3 view_graphics.html
+	1. mi_nuevo_modulo.js
+	2. view_mi_nuevo_modulo.html
+	3. view_graphics.html
 - En el /www/index.html déspues del <body>:
 	
 	```javascript
@@ -43,7 +43,7 @@ En /www/js/controller.js agregar el nuevo modulo con sus sub-modulos
 			name: "mi_nuevo_modulo",
 			sub: [
 				{name: "Sumar", in: "formula"}
-				{name: "Restar", in "formula"}
+				{name: "Restar", in: "formula"}
 			]
 		}
 	]
