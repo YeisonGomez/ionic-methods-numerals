@@ -1,5 +1,30 @@
 app.factory('minumSquare', function() {
-    
+    var chartConfig = {
+        options: {
+            tooltip: {
+                style: {
+                    padding: 10,
+                    fontWeight: 'bold'
+                }
+            }
+        },
+        series: [{
+            "name": "Puntos",
+            "data": [1, 2, 3, 4, 5, 6],
+            "type": "scatter",
+            "id": "series-0"
+        }, {
+            "name": "R",
+            "data": [3, 1],
+            "type": "line",
+            "id": "series-1"
+        }],
+        title: {
+            text: 'Mínimos cuadrados'
+        },
+        useHighStocks: false
+    };
+
     var minime_square = function(input) {
         var n = input.length;
         var solveMinumSquare = {
@@ -58,10 +83,21 @@ app.factory('minumSquare', function() {
         solveMinumSquare.solveR2 = Math.pow(solveMinumSquare.solveR, 2);
 
         solveMinumSquare.graphics = [];
+        var data = [];
+        var dataY = [];
+        var dataX = [];
         for (var i = 1; i < solveMinumSquare.solveTable.length; i++) {
-            solveMinumSquare.graphics.push([{ x: solveMinumSquare.solveTable[i].x, y: solveMinumSquare.solveTable[i].y }]);
+            data.push([solveMinumSquare.solveTable[i].x, solveMinumSquare.solveTable[i].y]);
+            dataY.push(solveMinumSquare.solveTable[i].y);
+            dataX.push(solveMinumSquare.solveTable[i].x);
+            //solveMinumSquare.graphics.push([{ x: solveMinumSquare.solveTable[i].x, y: solveMinumSquare.solveTable[i].y }]);
         }
-
+        chartConfig.series[0].data = data; //agrega los valores X  y Y
+        chartConfig.series[1].data = [
+            [0, Math.min(...dataY)],
+            [Math.max(...dataX), Math.max(...dataY)]
+        ]; // agrega el mínimo y el máximo para la linea de dispersión de la gráfica 
+        solveMinumSquare.graphics = chartConfig;
         return solveMinumSquare;
     }
 

@@ -1,4 +1,4 @@
-var app = angular.module('nume', ['ionic', 'chart.js']);
+var app = angular.module('nume', ['ionic', 'highcharts-ng']);
 
 
 app.config(function($stateProvider, $urlRouterProvider) {

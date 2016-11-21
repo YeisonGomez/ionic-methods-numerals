@@ -3,8 +3,9 @@ app.controller('mainCtrl', function($scope, $ionicModal, mathFactory) {
     $scope.method_solution = "";
     $scope.resolveHTML = "/templates/welcome.html";
     $scope.resolveGraphics = "/templates/welcome_graphics.html";
-    
+
     $scope.showInput = false;
+
 
     $scope.selectMethod = function(module, sub) {
         $scope.method_selected = { module: module, sub: sub };
@@ -30,8 +31,6 @@ app.controller('mainCtrl', function($scope, $ionicModal, mathFactory) {
             $scope.resolveHTML = html.resolve;
             $scope.resolveGraphics = html.graphics;
             $scope.solveProblem = data;
-
-            console.log(data);
             $scope.modalXY.hide();
         });
     }

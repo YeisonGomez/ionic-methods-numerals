@@ -132,6 +132,9 @@ ion-view{
 .color-white{
 	color: whitesmoke!important;
 }
+.color-lightgray{
+	color: lightgray!important;
+}
 .heigth-60px{
     height: 60px;
 }

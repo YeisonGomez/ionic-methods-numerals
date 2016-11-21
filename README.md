@@ -4,24 +4,23 @@ Nume es una aplicación movil desarrollada en ionic 1, la cual busca resolver pr
 
 ## Instalación #
 
-```
+```bash
 $ git clone https://github.com/YeisonGomez/ionic-methods-numerals.git
 $ cd ionic-methods-numerals
 $ ionic serve
 ```
 
 # Contribuir #
-Para contribuir y agregar nuevos modulos a Nume, debes tener conceptos basicos de Angular 1 y angular-chart.js. Siguiendo unos cuantos pasos la implementación de un nuevo modulo sera muy sencillo y funcional. 
+Para contribuir y agregar nuevos modulos a Nume, debes tener conceptos basicos de Angular 1 y highcharts-ng. Siguiendo unos cuantos pasos la implementación de un nuevo modulo sera muy sencillo y funcional. 
 
 **Paso 1**
 
-- En el editor de codigo ubiscarse en: /www/js/math/
+- En el editor de codigo ubicarse en: /www/js/math/
 - Crear nuevo modulo: /www/js/math/mi_nuevo_modulo/
-- Dentro del nuevo modulo crear 3 archivos, ejemplo:
-
-	1. mi_nuevo_modulo.js
-	2. view_mi_nuevo_modulo.html
-	3. view_graphics.html
+- Dentro del nuevo modulo crear 3 archivos, ejemplo: 
+	1 mi_nuevo_modulo.js
+	2 view_mi_nuevo_modulo.html
+	3 view_graphics.html
 - En el /www/index.html déspues del <body>:
 	
 	```javascript
@@ -123,7 +122,7 @@ La solución en pantalla para el usuario es editable por el contributor. Para pe
 
 **Nota:** {{solveProblem}} es la variable que contiene la respuesta del script proporcionado por el contributor **(no puede ser editable)**.
 
-#Agregar gráfica con [angular-chart.js](https://jtblin.github.io/angular-chart.js/)#
+#Agregar gráfica con [highcharts-ng](https://github.com/pablojim/highcharts-ng)#
 
 Para agregar una grafica se debe llevar a cabo en la respuesta del script, ejemplo:
 	
@@ -135,11 +134,9 @@ var add = function(input) {
 		problem: input.a + input.b,
 		miGrafica: []
 	};
-	
-	for (var i = 1; i < solution.miGrafica.length; i++) {
-        solution.miGrafica.push([{ x: i, y: i + 2 }]);
-    }
 
+	//chartConfig son las configuraciones que solicita la libreria highcharts-ng
+	solution.miGrafica = chartConfig; 
     return solution;
 }
 ```
@@ -147,8 +144,7 @@ var add = function(input) {
 **/www/js/math/mi_nuevo_modulo/view_graphics.html**
 
 ```html
-<canvas id="base" class="chart-bubble" chart-data="solveProblem.miGrafica">
-</canvas>
+<highchart id="chart1" config="solveProblem.miGrafica"></highchart>
 ```
 
 **Nota:** solveProblem no puede ser editado
