@@ -1,4 +1,4 @@
-var app = angular.module('nume', ['ionic', 'highcharts-ng']);
+var app = angular.module('nume', ['ionic', 'highcharts-ng', 'ng-math-factory']);
 
 
 app.config(function($stateProvider, $urlRouterProvider) {

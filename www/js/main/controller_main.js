@@ -1,4 +1,4 @@
-app.controller('mainCtrl', function($scope, $ionicModal, mathFactory) {
+app.controller('mainCtrl', function($scope, $ionicModal, $math) {
 
     $scope.method_solution = "";
     $scope.resolveHTML = "/templates/welcome.html";
@@ -8,12 +8,12 @@ app.controller('mainCtrl', function($scope, $ionicModal, mathFactory) {
 
 
     $scope.selectMethod = function(module, sub) {
-        $scope.method_selected = { module: module, sub: sub };
+        $scope.method_selected = { name: module, sub: sub };
         $scope.modalMethods.show();
     }
 
     $scope.openInput = function(sub, module) {
-        $scope.method_solution = { module: module, sub: sub.name };
+        $scope.method_solution = { name: module, sub: sub.name };
         $scope.modalMethods.hide();
 
         if (sub.in == "xy") {
@@ -27,7 +27,7 @@ app.controller('mainCtrl', function($scope, $ionicModal, mathFactory) {
     }
 
     $scope.solution = function(input) {
-        mathFactory.solution($scope.method_solution, input, function(data, html) {
+        $math.resolve($scope.method_solution, input, "/lib", function(data, html) {
             $scope.resolveHTML = html.resolve;
             $scope.resolveGraphics = html.graphics;
             $scope.solveProblem = data;
