@@ -2,7 +2,9 @@
     <ion-pane>
         <ion-header-bar ng-class="{ 'display-none' : !showInput}" class="heigth-60px bar-stable padding-top-10px bck-blue1">
             <input id="inputFormula" type="text" placeholder="Digite la fórmula" class="input-size input-round" ng-model="formula" ng-disabled="false" autofocus>
-            <i class="icon ion-log-out icon-table color-white"></i>
+            <a ng-click="solution(formula)">
+                <i class="icon ion-log-out icon-table color-white"></i>
+            </a>
         </ion-header-bar>
 
         <ion-content ng-class="{ 'top-55px' : showInput, 'top-0' : !showInput}" class="">
@@ -20,7 +22,8 @@
                 <ion-slide>
                     <div ng-include src="resolveHTML"></div>
                 </ion-slide>
-                <ion-slide>
+                
+                <ion-slide ng-if="resolveGraphics != undefined">
                     <div ng-include src="resolveGraphics"></div>
                 </ion-slide>
             </ion-slide-box>
@@ -29,6 +32,12 @@
         </ion-content>
     </ion-pane>
 </ion-view>
+
+
+
+
+
+
 <script id="modalMethods.html" type="text/ng-template">
     <ion-modal-view>
         <ion-header-bar class="bck-blue1">

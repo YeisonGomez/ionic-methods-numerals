@@ -3,4 +3,5 @@ app.controller('appCtrl', function($scope, $rootScope, $math) {
     $scope.method_selected = "";
 
     $scope.methods = $math.getMethods();
+    
 });

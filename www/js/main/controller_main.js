@@ -6,13 +6,13 @@ app.controller('mainCtrl', function($scope, $ionicModal, $math) {
 
     $scope.showInput = false;
 
-
     $scope.selectMethod = function(module, sub) {
         $scope.method_selected = { name: module, sub: sub };
         $scope.modalMethods.show();
     }
 
     $scope.openInput = function(sub, module) {
+
         $scope.method_solution = { name: module, sub: sub.name };
         $scope.modalMethods.hide();
 
@@ -21,6 +21,7 @@ app.controller('mainCtrl', function($scope, $ionicModal, $math) {
             $scope.showInput = false;
         } else if (sub.in == "formula") {
             $scope.showInput = true;
+            $scope.resolveHTML = '/lib' + sub.readme;
         } else {
 
         }
