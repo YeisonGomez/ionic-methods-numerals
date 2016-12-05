@@ -57,18 +57,17 @@
         return [{
             name: 'General',
             sub: [
-                { name: 'Operación basica', in : 'formula', readme: routeLib + '/general/readme/op_basic.html' },
-                { name: 'Derivar', in : 'formula', readme: routeLib + '/general/readme/derive.html' }
+                { name: 'Operación basica', in : 'formula', readme: routeLib + '/general/readme/op_basic.html' }/*,
+                { name: 'Derivar', in : 'formula', readme: routeLib + '/general/readme/derive.html' }*/
             ],
-            factory: 'general',
+            factory: 'general'/*, 
             libs: [
                 '/general/lib/derive.js'
-            ]
+            ]*/
         }, {
             name: 'Ajuste de curvas',
             sub: [
-                { name: 'Mínimos cuadrados', in : 'xy' },
-                { name: 'Interpolación lineal', in : 'xy' }
+                { name: 'Mínimos cuadrados', in : 'xy' }
             ],
             factory: 'adjustCurve'
         }, {
@@ -81,6 +80,92 @@
             ],
             factory: 'searchRaiz'
         }];
+    });
+})();
+
+(function() {
+    'use strict';
+    angular.module('math.general', [])
+        .factory('general', ['$q', function($q) {
+
+            return {
+                options: function(input, sub_module) {
+                    var deferred = $q.defer();
+                    var html = {
+                        resolve: "/general/view_general.html"
+                            //graphics: "/adjust_curve/view_graphics.html"
+                    };
+
+                    if (sub_module == "Operación basica") {
+                        deferred.resolve([op_basic(input), html]);
+                    } else if (sub_module == "Derivar") {
+                        deferred.resolve([derivar(input), html]);
+                    } else {
+                        deferred.reject("Método desconocido");
+                    }
+
+                    return deferred.promise;
+                }
+            };
+
+            function op_basic(input) {
+                var solucion = eval(input);
+                return solucion;
+            }
+
+            function derivar(input) {
+                var solution;
+                try {
+                    solution = deriveExpression(input);
+                } catch (exception) {
+                    solution = "Expresiones invalidas.";
+                }
+                return solution;
+            }
+        }]);
+})();
+
+(function() {
+    'use strict'; 
+    angular.module('math.search-raiz', []).factory('searchRaiz', function($q) {
+        return {
+            options: function(input, sub_module) {
+                var deferred = $q.defer();
+                var html = {
+                    resolve: "/src/search_raiz/view_search_raiz.html"
+                        //graphics: "/src/mi_nuevo_modulo/view_graphics.html" //Opcional
+                };
+
+                if (sub_module == "Punto fijo") {
+                    deferred.resolve([point_fixed(input), html]);
+                } else if (sub_module == "Bisección") {
+                    deferred.resolve([bisection(input), html]);
+                } else if (sub_module == "Newton Raphson") {
+                    deferred.resolve([newton(input), html]);
+                } else if (sub_module == "Regla falsa") {
+                    deferred.resolve([rule_false(input), html]);
+                } else {
+                    deferred.reject("Método desconocido");
+                }
+                return deferred.promise;
+            }
+        };
+
+        function point_fixed(input) {
+            return metodo_libreria(input);
+        }
+
+        function bisection(input) {
+            return metodo_libreria(input);
+        }
+
+        function newton(input) {
+            return metodo_libreria(input);
+        }
+
+        function rule_false(input) {
+            return metodo_libreria(input);
+        }
     });
 })();
 
@@ -211,92 +296,6 @@
                 return solveMinumSquare;
             }
         }]);
-})();
-
-(function() {
-    'use strict';
-    angular.module('math.general', [])
-        .factory('general', ['$q', function($q) {
-
-            return {
-                options: function(input, sub_module) {
-                    var deferred = $q.defer();
-                    var html = {
-                        resolve: "/general/view_general.html"
-                            //graphics: "/adjust_curve/view_graphics.html"
-                    };
-
-                    if (sub_module == "Operación basica") {
-                        deferred.resolve([op_basic(input), html]);
-                    } else if (sub_module == "Derivar") {
-                        deferred.resolve([derivar(input), html]);
-                    } else {
-                        deferred.reject("Método desconocido");
-                    }
-
-                    return deferred.promise;
-                }
-            };
-
-            function op_basic(input) {
-                var solucion = eval(input);
-                return solucion;
-            }
-
-            function derivar(input) {
-                var solution;
-                try {
-                    solution = deriveExpression(input);
-                } catch (exception) {
-                    solution = "Expresiones invalidas.";
-                }
-                return solution;
-            }
-        }]);
-})();
-
-(function() {
-    'use strict'; 
-    angular.module('math.search-raiz', []).factory('searchRaiz', function($q) {
-        return {
-            options: function(input, sub_module) {
-                var deferred = $q.defer();
-                var html = {
-                    resolve: "/src/search_raiz/view_search_raiz.html"
-                        //graphics: "/src/mi_nuevo_modulo/view_graphics.html" //Opcional
-                };
-
-                if (sub_module == "Punto fijo") {
-                    deferred.resolve([point_fixed(input), html]);
-                } else if (sub_module == "Bisección") {
-                    deferred.resolve([bisection(input), html]);
-                } else if (sub_module == "Newton Raphson") {
-                    deferred.resolve([newton(input), html]);
-                } else if (sub_module == "Regla falsa") {
-                    deferred.resolve([rule_false(input), html]);
-                } else {
-                    deferred.reject("Método desconocido");
-                }
-                return deferred.promise;
-            }
-        };
-
-        function point_fixed(input) {
-            return metodo_libreria(input);
-        }
-
-        function bisection(input) {
-            return metodo_libreria(input);
-        }
-
-        function newton(input) {
-            return metodo_libreria(input);
-        }
-
-        function rule_false(input) {
-            return metodo_libreria(input);
-        }
-    });
 })();
 
 /*

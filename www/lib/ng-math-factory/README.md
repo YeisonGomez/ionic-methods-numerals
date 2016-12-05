@@ -3,7 +3,6 @@
 ng-math-factory es una librería que soluciona problemas matemáticos con [AngularJS](https://angularjs.org/).
 
 -  [Instalación](#instalación)
--  [Inyectando](#inyectando)
 -  [Uso](#uso)
 -  [Contribuir](#contribuir)
 -  [Agregar gráfica](#agregar-gráfica-con-highcharts-ng)
@@ -23,11 +22,9 @@ La librería JavaScript debe agregarse en el **index.html** de tu proyecto:
 <script src="../ng-math-factory/dist/ng-math-factory.min.js"></script>
 ```
 
-### Inyectando: #
-
 Ahora debe inyectar la librería en su módulo **app.js**:
 
-```
+```javascript
 var app = angular.module('myapp', ['ng-math-factory']);
 ```
 
@@ -37,15 +34,19 @@ var app = angular.module('myapp', ['ng-math-factory']);
 
 ```javascript
 app.controller('appCtrl', function($scope, $math) {
+	//Obtener métodos proporcionado por ng-math-factory
     $scope.methods = $math.getMethods();
 
 	//Función para obtener el metodo seleccionado.
     $scope.selectMethod = function(module, sub){
+    	module = "example";
+    	sub = {name: "Sumar", in: "formula"};
+
 		$scope.method_current = { name: module, sub: sub.name };
 		if(sub.in == "formula"){
 			//Obtener un String con la formula a resolver
 		}else if(sub.in == "xy"){
-			//Obtener un arreglo de JSON especificado en la descripción de **in**
+			//Obtener un arreglo de JSON especificado en la descripción de in
 		}
     }
 });
@@ -55,6 +56,7 @@ De esta forma se obtiene los métodos que proporciona ng-math-factory, para lueg
 Los datos se obtiene en formato JSON con esta estructura:
 
 ```javascript
+$scope.methods =
 [{
     name: 'example',
     sub: [

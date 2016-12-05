@@ -6,18 +6,17 @@
         return [{
             name: 'General',
             sub: [
-                { name: 'Operación basica', in : 'formula', readme: routeLib + '/general/readme/op_basic.html' },
-                { name: 'Derivar', in : 'formula', readme: routeLib + '/general/readme/derive.html' }
+                { name: 'Operación basica', in : 'formula', readme: routeLib + '/general/readme/op_basic.html' }/*,
+                { name: 'Derivar', in : 'formula', readme: routeLib + '/general/readme/derive.html' }*/
             ],
-            factory: 'general',
+            factory: 'general'/*, 
             libs: [
                 '/general/lib/derive.js'
-            ]
+            ]*/
         }, {
             name: 'Ajuste de curvas',
             sub: [
-                { name: 'Mínimos cuadrados', in : 'xy' },
-                { name: 'Interpolación lineal', in : 'xy' }
+                { name: 'Mínimos cuadrados', in : 'xy' }
             ],
             factory: 'adjustCurve'
         }, {
